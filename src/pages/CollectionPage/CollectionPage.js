@@ -7,9 +7,14 @@ import { selectCollection } from '../../redux/shop/shop.selectors'
 
 import './CollectionPage.scss'
 
-const CollectionPage = ({ collection }) => console.log(collection) || (
+const CollectionPage = ({ collection: { title, items } }) => (
   <div className='collection-page'>
-    <h2>Collection Page</h2>
+    <h2 className='title'>{title}</h2>
+    <div className='items'>
+      {
+        items.map(item => <CollectionItem key={item.id} item={item} />)
+      }
+    </div>
   </div>
 )
 
